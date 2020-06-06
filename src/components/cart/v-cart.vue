@@ -42,7 +42,6 @@ export default {
       this.DELETE_FROM_CART(index);
     },
     decrementCartItem(index){
-        console.log(index);
         this.DECREMENT_CART_ITEM(index);
     },
     incrementCartItem(index){
