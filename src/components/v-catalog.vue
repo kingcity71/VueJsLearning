@@ -1,12 +1,14 @@
 <template>
   <div class="v-catalog">
     <h1>Catalog</h1>
-    <v-catalog-item
-      v-for="product in this.PRODUCTS"
-      :key="product.article"
-      :product_data="product"
-      @addToCart="addToCart"
-    />
+    <div class="v-catalog__list">
+      <v-catalog-item
+        v-for="product in this.PRODUCTS"
+        :key="product.article"
+        :product_data="product"
+        @addToCart="addToCart"
+      />
+    </div>
   </div>
 </template>
 
@@ -23,19 +25,16 @@ export default {
     return {};
   },
   methods: {
-    ...mapActions([
-      "GET_PRODUCTS_FROM_API",
-      "ADD_TO_CART"
-      ]),
-      addToCart(data) {
-        this.ADD_TO_CART(data);
+    ...mapActions(["GET_PRODUCTS_FROM_API", "ADD_TO_CART"]),
+    addToCart(data) {
+      this.ADD_TO_CART(data);
     },
 
     showChildInConsole(data) {
       console.log(data);
     }
   },
-  mounted(){
+  mounted() {
     this.GET_PRODUCTS_FROM_API()
     .then((responce)=>{
       if(responce.data){
@@ -43,8 +42,8 @@ export default {
       }
     })
   },
-  computed:{
-    ...mapGetters(['PRODUCTS'])
+  computed: {
+    ...mapGetters(["PRODUCTS"])
   }
 };
 </script>
