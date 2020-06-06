@@ -1,15 +1,27 @@
 <template>
   <div id="app">
-    <v-main-wrapper />
+    <!-- <v-textfield
+      v-model="model"
+      label="placeholder"/> -->
+    
+    <v-main-wrapper/>
   </div>
+  
 </template>
 
 <script>
 import vMainWrapper from "./components/v-main-wrapper";
+//import vTextfield from './components/textfield/v-textfield';
 export default {
   name: "App",
   components: {
-    vMainWrapper
+    //vTextfield
+     vMainWrapper
+  },
+  data(){
+    return{
+      // model:''
+    }
   }
 };
 </script>
